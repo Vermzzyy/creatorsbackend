@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.config;
+package com.creatorshub.creatorshub.shared.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

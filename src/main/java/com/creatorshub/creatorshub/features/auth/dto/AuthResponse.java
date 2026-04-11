@@ -1,6 +1,6 @@
-package com.creatorshub.creatorshub.DTO;
+package com.creatorshub.creatorshub.features.auth.dto;
 
-import com.creatorshub.creatorshub.entity.*;
+import com.creatorshub.creatorshub.features.user.model.User;
 
 public class AuthResponse {
 

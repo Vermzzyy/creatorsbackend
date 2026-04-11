@@ -1,15 +1,15 @@
-package com.creatorshub.creatorshub.service;
+package com.creatorshub.creatorshub.features.auth.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.creatorshub.creatorshub.DTO.AuthResponse;
-import com.creatorshub.creatorshub.DTO.LoginRequest;
-import com.creatorshub.creatorshub.DTO.RegisterRequest;
-import com.creatorshub.creatorshub.entity.User;
-import com.creatorshub.creatorshub.repository.UserRepository;
-import com.creatorshub.creatorshub.security.JwtUtil;
+import com.creatorshub.creatorshub.features.user.model.User;
+import com.creatorshub.creatorshub.features.user.repository.UserRepository;
+import com.creatorshub.creatorshub.features.auth.dto.AuthResponse;
+import com.creatorshub.creatorshub.features.auth.dto.LoginRequest;
+import com.creatorshub.creatorshub.features.auth.dto.RegisterRequest;
+import com.creatorshub.creatorshub.shared.security.JwtUtil;
 
 @Service
 public class AuthService {

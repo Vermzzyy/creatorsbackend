@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.security;
+package com.creatorshub.creatorshub.shared.security;
 
 import java.util.Date;
 import javax.crypto.SecretKey;
@@ -27,8 +27,9 @@ public class JwtUtil {
     }
 
     public String extractEmail(String token) {
-        return Jwts.parser()
-                .setSigningKey(SECRET)
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();

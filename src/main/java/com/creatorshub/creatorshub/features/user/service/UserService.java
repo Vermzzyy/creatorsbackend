@@ -1,13 +1,13 @@
-package com.creatorshub.creatorshub.service;
+package com.creatorshub.creatorshub.features.user.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.creatorshub.creatorshub.DTO.ProfileResponse;
-import com.creatorshub.creatorshub.DTO.UpdatePasswordRequest;
-import com.creatorshub.creatorshub.entity.User;
-import com.creatorshub.creatorshub.repository.UserRepository;
+import com.creatorshub.creatorshub.features.user.dto.ProfileResponse;
+import com.creatorshub.creatorshub.features.user.dto.UpdatePasswordRequest;
+import com.creatorshub.creatorshub.features.user.model.User;
+import com.creatorshub.creatorshub.features.user.repository.UserRepository;
 
 @Service
 public class UserService {

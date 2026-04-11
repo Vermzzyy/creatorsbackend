@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.entity;
+package com.creatorshub.creatorshub.features.user.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

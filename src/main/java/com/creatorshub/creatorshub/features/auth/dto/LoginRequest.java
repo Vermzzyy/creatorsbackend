@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.DTO;
+package com.creatorshub.creatorshub.features.auth.dto;
 
 public class LoginRequest {
 

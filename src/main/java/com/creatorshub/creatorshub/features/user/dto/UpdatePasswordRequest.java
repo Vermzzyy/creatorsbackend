@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.DTO;
+package com.creatorshub.creatorshub.features.user.dto;
 
 public class UpdatePasswordRequest {
 

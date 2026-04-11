@@ -1,4 +1,4 @@
-package com.creatorshub.creatorshub.controller;
+package com.creatorshub.creatorshub.features.auth.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.creatorshub.creatorshub.DTO.LoginRequest;
-import com.creatorshub.creatorshub.DTO.RegisterRequest;
-import com.creatorshub.creatorshub.service.AuthService;
+import com.creatorshub.creatorshub.features.auth.dto.LoginRequest;
+import com.creatorshub.creatorshub.features.auth.dto.RegisterRequest;
+import com.creatorshub.creatorshub.features.auth.service.AuthService;
 
 @RestController
 @RequestMapping("/api/v1/auth")

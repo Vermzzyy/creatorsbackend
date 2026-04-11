@@ -1,11 +1,11 @@
-package com.creatorshub.creatorshub.repository;
+package com.creatorshub.creatorshub.features.user.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.creatorshub.creatorshub.entity.User;
+import com.creatorshub.creatorshub.features.user.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
