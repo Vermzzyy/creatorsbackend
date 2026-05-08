@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.creatorshub.creatorshub.features.user.dto.ProfileResponse;
 import com.creatorshub.creatorshub.features.user.dto.UpdatePasswordRequest;
+import com.creatorshub.creatorshub.features.user.dto.UpdateProfilePictureRequest;
 import com.creatorshub.creatorshub.features.user.service.UserService;
 import com.creatorshub.creatorshub.shared.security.JwtUtil;
 
@@ -38,7 +39,7 @@ public class UserController {
             ProfileResponse profile = userService.getProfile(email);
             return ResponseEntity.ok(profile);
         } catch (Exception e) {
-            e.printStackTrace(); // 🔥 VERY IMPORTANT
+            e.printStackTrace();
             return ResponseEntity.status(401).body("Invalid token");
         }
     }
@@ -51,8 +52,24 @@ public class UserController {
         String token = request.getHeader("Authorization").replace("Bearer ","");
         String email = jwtUtil.extractEmail(token);
 
-        userService.updatePassword(email, body);
+        try {
+            userService.updatePassword(email, body);
+            return ResponseEntity.ok("Password updated successfully");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
+    }
 
-        return ResponseEntity.ok("Password updated successfully");
+    @PutMapping("/profile/photo")
+    public ResponseEntity<?> updateProfilePhoto(
+            HttpServletRequest request,
+            @RequestBody UpdateProfilePictureRequest body) {
+
+        String token = request.getHeader("Authorization").replace("Bearer ", "");
+        String email = jwtUtil.extractEmail(token);
+
+        userService.updateProfilePhoto(email, body.profilePictureUrl);
+
+        return ResponseEntity.ok("Profile photo updated successfully");
     }
 }

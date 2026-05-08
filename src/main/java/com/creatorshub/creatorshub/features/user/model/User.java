@@ -24,6 +24,8 @@ public class User {
 
     private String role = "CUSTOMER";
 
+    private String profilePhotoUrl;
+
     public Long getUserID() {
     return userID;
     }
@@ -70,6 +72,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getProfilePhotoUrl() {
+        return profilePhotoUrl;
+    }
+
+    public void setProfilePhotoUrl(String profilePhotoUrl) {
+        this.profilePhotoUrl = profilePhotoUrl;
     }
 
 }

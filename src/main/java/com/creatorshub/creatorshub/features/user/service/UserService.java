@@ -17,6 +17,11 @@ public class UserService {
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
     public ProfileResponse getProfile(String email){
 
         User user = userRepository.findByEmail(email)
@@ -25,7 +30,9 @@ public class UserService {
         return new ProfileResponse(
                 user.getEmail(),
                 user.getFirstname(),
-                user.getLastname()
+                user.getLastname(),
+                user.getProfilePhotoUrl(),
+                user.getRole()
         );
     }
 
@@ -48,6 +55,14 @@ public class UserService {
 
         user.setPasswordHash(encoder.encode(request.newPassword));
 
+        userRepository.save(user);
+    }
+
+    public void updateProfilePhoto(String email, String photoUrl) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        
+        user.setProfilePhotoUrl(photoUrl);
         userRepository.save(user);
     }
 }

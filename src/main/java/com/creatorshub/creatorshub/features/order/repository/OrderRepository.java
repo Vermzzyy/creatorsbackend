@@ -1,0 +1,13 @@
+package com.creatorshub.creatorshub.features.order.repository;
+
+import com.creatorshub.creatorshub.features.order.model.OrderEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
+    List<OrderEntity> findByUserIdOrderByCreatedAtDesc(Long userId);
+    List<OrderEntity> findAllByOrderByCreatedAtDesc();
+}

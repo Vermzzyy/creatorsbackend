@@ -23,7 +23,10 @@ public class AuthService {
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
     public AuthResponse register(RegisterRequest request){
-
+        
+        if(userRepository.findByEmail(request.email).isPresent()){
+            throw new RuntimeException("Email already exists");
+        }
         if(!request.password.equals(request.confirmPassword)){
             throw new RuntimeException("Passwords do not match");
         }
